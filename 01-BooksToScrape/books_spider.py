@@ -51,10 +51,10 @@ for sub_domain in lista_pagina_de_livro:
     livro_genero = page_soup.findAll("ul", {"class":"breadcrumb"})[0].select_one("li:nth-of-type(3)").a.text
 
     # Preço do Livro:
-    livro_preco = page_soup.find("p", {"class":"price_color"}).text
+    livro_preco = page_soup.find("p", {"class":"price_color"}).text.strip()[1:]
 
     # Taxa do Livro:
-    livro_taxa = page_soup.find("tbody").select_one("tr:nth-of-type(5)").td.text
+    livro_taxa = page_soup.find("tbody").select_one("tr:nth-of-type(5)").td.text.strip()[1:]
 
     # Quantidade de estrelas:
     livro_estrela = page_soup.find("div", {"class":"col-sm-6 product_main"}).select_one("p:nth-of-type(3)")['class'][1]
@@ -65,12 +65,12 @@ for sub_domain in lista_pagina_de_livro:
     # Estoque dos livros
     estoque = page_soup.find("p", {"class":"instock availability"}).text.strip()
     #livro_disponibilidade = estoque[:estoque.find('(')-1]
-    livro_estoque = estoque[estoque.find('(')+1:estoque.find(')')]
+    livro_estoque = estoque[estoque.find('(')+1:].split()[0]
 
     # UPC do Livro:
     livro_UPC = page_soup.find("tbody").tr.td.text
 
-    livro_info = [livro_nome, livro_genero,livro_preco, livro_taxa, livro_estrela, livro_reviews, livro_estoque, livro_estoque, livro_UPC]
+    livro_info = [livro_nome, livro_genero,livro_preco, livro_taxa, livro_estrela, livro_reviews, livro_estoque, livro_UPC]
     biblioteca.append(livro_info)
 
 # Fecha o Chromium:
@@ -81,7 +81,7 @@ with open('books_scrap.csv', 'w', newline='') as f:
     thewriter = csv.writer(f)
 
     # Linha para os titulos:
-    thewriter.writerow(['Titulo', 'Genero', 'Preco', 'Taxa', 'Estrelas', 'Reviews', 'Estoque', 'Disponivel', 'UPC'])
+    thewriter.writerow(['Titulo', 'Genero', 'Preco', 'Taxa', 'Estrelas', 'Reviews', 'Estoque', 'UPC'])
 
     # Entradas dos livros:
     for livro in biblioteca:
