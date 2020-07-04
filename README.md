@@ -14,3 +14,17 @@ Documentação das Biblitoecas em Python:
 ## **Books to Scrape:**
 ![Banner](https://github.com/GabrielTrentino/WebScraping/blob/master/00-img/01-BooksToScrapeBanner.png?raw=true)
 
+[Books to Scrape](http://books.toscrape.com/) é um site criado com a unica finalidade de praticar o *Web Scraping* e, a partir desse site, o [Meigarom](https://www.youtube.com/channel/UCar5Cr-pVz08GY_6I3RX9bA) a elaboração de um Projeto de Data Engineering em seu [post](https://sejaumdatascientist.com/o-projeto-de-data-engineering-para-o-seu-portfolio/) no qual decidi tentar. A Situação Ficticia foi sintetizada com minhas palavras de acordo com a ideia geral passada no post.
+
+Situação Ficticia: Uma Startup de troca de livros possui um modelo de negócio à base na troca de livros cadastrados pelo usuário. O objetivo como Data Scientist é de construir um Sistema de Recomendação de Compra de livros melhores avaliados por gênero. Logo, antes de construir um sistema de recomendação, você precisa coletar e armazenar os dados do site. Portanto seu primeiro trabalho como um Data Scientist será coletar e armazenar os seguintes dados:
+
+1. O nome do livro;
+2. A categoria do livro;
+3. O número de estrelas que o livro recebeu;
+4. O preço do livro;
+5. Se o livro está em Estoque ou não.
+
+Os outros processos metodologicos estão disponíveis no [README.md](https://github.com/GabrielTrentino/WebScraping/tree/master/01-BooksToScrape) do projeto.
+
+# **Dúvidas e Redes Sociais:**
+O repositório aumentará o seu tamanho de acordo com as realizações dos cursos. E claro, aceito recomendações de cursos, livros ou vídeos! Qualquer duvida me chame no [LinkedIn](https://www.linkedin.com/in/gabriel-trentino-froes-415558144/).
