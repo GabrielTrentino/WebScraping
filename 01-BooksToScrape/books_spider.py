@@ -1,88 +1,96 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup as soup
+from urllib.error import HTTPError
+from urllib.error import URLError
 import csv
 
-# Inicializando o Chromium:
-driver = webdriver.Chrome(ChromeDriverManager().install())
+def ProcurarPaginasLivros(new_url, qnt_de_paginas=50):
+    # Inicializando o Chromium:
+    driver = webdriver.Chrome(ChromeDriverManager().install())
 
-# Criar duas variáveis
-url = 'http://books.toscrape.com/'
-new_url = 'http://books.toscrape.com/catalogue/page-1.html'
+    lista_pagina_de_livro = []
 
-lista_pagina_de_livro = []
-
-# Loop de 50 paginas:
-for i in range(1, 51):
-    # Cria a Url para extrair os 20 livros
-    new_url = new_url[:new_url.find('-')+1]+str(i)+'.html'
+    # Loop de 50 paginas:
+    for i in range(1, qnt_de_paginas+1):
+        # Cria a Url para extrair os 20 livros
+        new_url = new_url[:new_url.find('-')+1]+str(i)+'.html'
 
     # Carregando a pagina:
-    driver.get(new_url)
-    page_html = driver.page_source
-    page_soup = soup(page_html, "html.parser")
+        driver.get(new_url)
 
-    # Encontra todas as molduras dos livros na pagina:
-    containers = page_soup.findAll("li", {"class":"col-xs-6 col-sm-4 col-md-3 col-lg-3"})
+        page_html = driver.page_source
+        page_soup = soup(page_html, "html.parser")
 
-    # Repetição para cada livro na pagina (20 repetições):
-    for container in containers:
-        # Obtêm a pagina especifica do livro:
-        pagina_livro = container.article.h3.a["href"]
+        # Encontra todas as molduras dos livros na pagina:
+        containers = page_soup.findAll("li", {"class": "col-xs-6 col-sm-4 col-md-3 col-lg-3"})
 
-        # Adiciona a informação em uma lista
-        lista_pagina_de_livro.append(pagina_livro)
+        # Repetição para cada livro na pagina (20 repetições):
+        for container in containers:
+            # Obtêm a pagina especifica do livro:
+            pagina_livro = container.article.h3.a["href"]
 
-biblioteca = []
+            # Adiciona a informação em uma lista
+            lista_pagina_de_livro.append(pagina_livro)
 
-# Acessa cada pagina especifica do livro:
-for sub_domain in lista_pagina_de_livro:
+    driver.close()
+    return lista_pagina_de_livro
 
-    # Acessando a pagina especifica e baixando as informaçãoes:
-    driver.get(url + 'catalogue/' + sub_domain)
-    page_html = driver.page_source
-    page_soup = soup(page_html, "html.parser")
+def CrawlInfoLivros(lista_pagina_de_livro, url):
+    # Inicializando o Chromium:
+    driver = webdriver.Chrome(ChromeDriverManager().install())
 
-    # OBTENÇÃO DAS INFORMAÇÕES:
-    # Titulo do Livro:
-    livro_nome = page_soup.find("div", {"class":"col-sm-6 product_main"}).h1.text
+    biblioteca = []
 
-    # Genero do Livro:
-    livro_genero = page_soup.findAll("ul", {"class":"breadcrumb"})[0].select_one("li:nth-of-type(3)").a.text
+    # Acessa cada pagina especifica do livro:
+    for sub_domain in lista_pagina_de_livro:
 
-    # Preço do Livro:
-    livro_preco = page_soup.find("p", {"class":"price_color"}).text.strip()[1:]
+        # Acessando a pagina especifica e baixando as informaçãoes:
+        driver.get(url + 'catalogue/' + sub_domain)
+        page_html = driver.page_source
+        page_soup = soup(page_html, "html.parser")
 
-    # Taxa do Livro:
-    livro_taxa = page_soup.find("tbody").select_one("tr:nth-of-type(5)").td.text.strip()[1:]
+        # OBTENÇÃO DAS INFORMAÇÕES:
+        # Titulo do Livro:
+        livro_nome = page_soup.find("div", {"class": "col-sm-6 product_main"}).h1.text
 
-    # Quantidade de estrelas:
-    livro_estrela = page_soup.find("div", {"class":"col-sm-6 product_main"}).select_one("p:nth-of-type(3)")['class'][1]
+        # Genero do Livro:
+        livro_genero = page_soup.findAll("ul", {"class": "breadcrumb"})[0].select_one("li:nth-of-type(3)").a.text
 
-    # Número de Reviews:
-    livro_reviews = page_soup.find("tbody").select_one("tr:nth-of-type(7)").td.text
+        # Preço do Livro:
+        livro_preco = page_soup.find("p", {"class": "price_color"}).text.strip()[1:]
 
-    # Estoque dos livros
-    estoque = page_soup.find("p", {"class":"instock availability"}).text.strip()
-    #livro_disponibilidade = estoque[:estoque.find('(')-1]
-    livro_estoque = estoque[estoque.find('(')+1:].split()[0]
+        # Taxa do Livro:
+        livro_taxa = page_soup.find("tbody").select_one("tr:nth-of-type(5)").td.text.strip()[1:]
 
-    # UPC do Livro:
-    livro_UPC = page_soup.find("tbody").tr.td.text
+        # Quantidade de estrelas:
+        livro_estrela = page_soup.find("div", {"class": "col-sm-6 product_main"}).select_one("p:nth-of-type(3)")['class'][1]
 
-    livro_info = [livro_nome, livro_genero,livro_preco, livro_taxa, livro_estrela, livro_reviews, livro_estoque, livro_UPC]
-    biblioteca.append(livro_info)
+        # Número de Reviews:
+        livro_reviews = page_soup.find("tbody").select_one("tr:nth-of-type(7)").td.text
 
-# Fecha o Chromium:
-driver.close()
+        # Estoque dos livros
+        estoque = page_soup.find("p", {"class": "instock availability"}).text.strip()
+        # livro_disponibilidade = estoque[:estoque.find('(')-1]
+        livro_estoque = estoque[estoque.find('(')+1:].split()[0]
 
-# Salvando em um documento .csv:
-with open('books_scrap.csv', 'w', newline='') as f:
-    thewriter = csv.writer(f)
+        # UPC do Livro:
+        livro_UPC = page_soup.find("tbody").tr.td.text
 
-    # Linha para os titulos:
-    thewriter.writerow(['Titulo', 'Genero', 'Preco', 'Taxa', 'Estrelas', 'Reviews', 'Estoque', 'UPC'])
+        livro_info = [livro_nome, livro_genero,livro_preco, livro_taxa, livro_estrela, livro_reviews, livro_estoque, livro_UPC]
+        biblioteca.append(livro_info)
+    # Fecha o Chromium:
+    driver.close()
+    return biblioteca
 
-    # Entradas dos livros:
-    for livro in biblioteca:
-        thewriter.writerow(livro)
+def SalvarEmCsv(biblioteca):
+    # Salvando em um documento .csv:
+    with open('books_scrap.csv', 'w', newline='') as f:
+        thewriter = csv.writer(f)
+
+        # Linha para os titulos:
+        thewriter.writerow(['Titulo', 'Genero', 'Preco', 'Taxa', 'Estrelas', 'Reviews', 'Estoque', 'UPC'])
+
+        # Entradas dos livros:
+        for livro in biblioteca:
+            thewriter.writerow(livro)
