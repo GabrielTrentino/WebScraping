@@ -14,12 +14,12 @@ Situação Ficticia: Uma Startup de troca de livros possui um modelo de negócio
 
 *  O Web Scrapper foi realizado utilizando a linguagem [Python](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/books_spider.py);
     * Foram utilizados: `Selenium` e `BeautifulSoup`;
-    * **(PRECISA SER FEITO)** Modularização das Funções;
+    * Modularização das Funções;
 * **(PRECISA SER FEITO)** Configurar o banco de dado Postgres;
     * **(PRECISA SER FEITO)** Sincronizar os scripts de Python com o banco de dados Postgres;
     * **(PRECISA SER FEITO)** Um Script so pode rodar quando outro terminar;
 * Foi criado um arquivo [`.csv`](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/books_scrap.csv) com o Python;
-* **(PRECISA SER FEITO)** Agendar o script para rodar em horários específicos;
+* Agendar o script para rodar em horários específicos;
 * **(PRECISA SER FEITO)** Garantir que o script saiba lidar com problemas (internet lenta, página não encontrada, objeto não carregado, etc);
 * [Análise Exploratória](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/Books_To_Scrape.ipynb) dos Dados extraídos;
     * Recomendar os livros com maior avaliação entre os gêneros;
@@ -33,6 +33,11 @@ A Análise Exploratória dos dados esta disponivel no [Google Colab](https://git
 * Livros com estoques acima de 10 exemplares e com boas notas (4 e 5 estrelas);
 
 ## COMO RODAR NA SUA MÁQUINA:
+
+1. Baixe os arquivos [`books_spider.py`](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/books_spider.py) e [`main.py`](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/main.py) na mesma pasta;
+2. Em seguida, rode o `main.py`;
+3. O `main.py` utilizará as funções do `book_spider.py` e fará o crawl dos 1000 livros existentes;
+4. Finalizando, o script escreverá um arquivo `.csv`.
 
 # **Dúvidas e Redes Sociais:**
 O repositório aumentará o seu tamanho de acordo com as realizações dos cursos. E claro, aceito recomendações de cursos, livros ou vídeos! Qualquer duvida me chame no [LinkedIn](https://www.linkedin.com/in/gabriel-trentino-froes-415558144/).
