@@ -24,7 +24,7 @@ Situação Ficticia: Uma Startup de troca de livros possui um modelo de negócio
 4. O **preço** do livro;
 5. Se o livro **está em Estoque ou não**.
 
-Os outros processos metodologicos estão disponíveis no [README.md](https://github.com/GabrielTrentino/WebScraping/tree/master/01-BooksToScrape) do projeto. A análise exploratória e as informações para as possíveis tomadas de decisão estão disponíveis no [notebook](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/Books_To_Scrape.ipynb)
+Os outros processos metodologicos estão disponíveis no [README.md](https://github.com/GabrielTrentino/WebScraping/tree/master/01-BooksToScrape) do projeto. A análise exploratória e as informações para as possíveis tomadas de decisão estão disponíveis no [notebook](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/Books_To_Scrape.ipynb).
 
 # **Dúvidas e Redes Sociais:**
 O repositório aumentará o seu tamanho de acordo com as realizações dos cursos. E claro, aceito recomendações de cursos, livros ou vídeos! Qualquer duvida me chame no [LinkedIn](https://www.linkedin.com/in/gabriel-trentino-froes-415558144/).
