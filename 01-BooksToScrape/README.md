@@ -21,12 +21,16 @@ Situação Ficticia: Uma Startup de troca de livros possui um modelo de negócio
 * Foi criado um arquivo [`.csv`](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/books_scrap.csv) com o Python;
 * **(PRECISA SER FEITO)** Agendar o script para rodar em horários específicos;
 * **(PRECISA SER FEITO)** Garantir que o script saiba lidar com problemas (internet lenta, página não encontrada, objeto não carregado, etc);
-* Análise Exploratória dos Dados extraídos;
+* [Análise Exploratória](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/Books_To_Scrape.ipynb) dos Dados extraídos;
     * Recomendar os livros com maior avaliação entre os gêneros;
     
 ## TOMADAS DE DECISÃO:
 
-Aqui terá o resumo da Análise Exploratória 
+A Análise Exploratória dos dados esta disponivel no [Google Colab](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/Books_To_Scrape.ipynb) e, em seguida, foram geradas as informações necessárias para as possíveis tomadas de decisão que a empresa busque utilizar. Tais como:
+
+* Livros com estoques abaixo de 5 exemplares;
+* Livros com estoques abaixos de 5 exemplares mas com boas notas (4 e 5 estrelas);
+* Livros com estoques acima de 10 exemplares e com boas notas (4 e 5 estrelas);
 
 ## COMO RODAR NA SUA MÁQUINA:
 
