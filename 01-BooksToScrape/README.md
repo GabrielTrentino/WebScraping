@@ -12,7 +12,7 @@ Situação Ficticia: Uma Startup de troca de livros possui um modelo de negócio
 
 ## COMO FOI REALIZADA:
 
-*  O Web Scrapper foi realizado utilizando a linguagem [Python](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/books_spider.py);
+*  O Web Scrapper foi realizado utilizando a linguagem Python;
     * Foram utilizados: `Selenium` e `BeautifulSoup`;
     * Modularização das Funções;
 * **(PRECISA SER FEITO)** Configurar o banco de dado Postgres;
@@ -34,10 +34,11 @@ A Análise Exploratória dos dados esta disponivel no [Google Colab](https://git
 
 ## COMO RODAR NA SUA MÁQUINA:
 
-1. Baixe os arquivos [`books_spider.py`](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/books_spider.py) e [`main.py`](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/main.py) na mesma pasta;
-2. Em seguida, rode o `main.py`;
-3. O `main.py` utilizará as funções do `book_spider.py` e fará o crawl dos 1000 livros existentes;
-4. Finalizando, o script escreverá um arquivo `.csv`.
+1. Baixe o arquivo [`BooksToScrape.rar`](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/BooksToScrape.rar) e descompacte;
+2. Em seguida, abra o Pycharm e selecione o projeto;
+3. Rode o `main.py`;
+4. O `main.py` utilizará as funções do `book_spider.py` e fará o crawl dos 1000 livros existentes;
+5. Finalizando, o script escreverá um arquivo `.csv`.
 
 # **Dúvidas e Redes Sociais:**
 O repositório aumentará o seu tamanho de acordo com as realizações dos cursos. E claro, aceito recomendações de cursos, livros ou vídeos! Qualquer duvida me chame no [LinkedIn](https://www.linkedin.com/in/gabriel-trentino-froes-415558144/).
