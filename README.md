@@ -26,5 +26,14 @@ Situação Ficticia: Uma Startup de troca de livros possui um modelo de negócio
 
 Os outros processos metodologicos estão disponíveis no [README.md](https://github.com/GabrielTrentino/WebScraping/tree/master/01-BooksToScrape) do projeto. A análise exploratória e as informações para as possíveis tomadas de decisão estão disponíveis no [notebook](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/Books_To_Scrape.ipynb).
 
+## **LinkedIn Auto ADD:**
+![](https://github.com/GabrielTrentino/WebScraping/blob/master/00-img/02-LinkedInBanner.png?raw=true)
+
+Os códigos desse projeto está disponível no [`link`](https://github.com/GabrielTrentino/WebScraping/blob/master/02-LinkedIn/LinkedIn.rar).
+
+O LinkedIn é uma rede social que é principalmente utilizada por profissionais com o intuito de mostrar as aptidões. O objetivo desse programa é buscar os perfis mais bem selecionados e adicionar em sua rede social. Para utilizar essa automação é necessário inserir usuário, senha, profissões, localidades e quantas páginas do google essa automação deve buscar.
+
+Com o programa rodando, ele começará logando no seu perfil no Linkedin. Em seguida, irá pesquisar e coletar as paginas dos perfis de acordo com as possíveis cidades e profissões pelo Google. Em seguida, irá adicionar os perfis do LinkedIn de acordo com o grau de relacionamento.
+
 # **Dúvidas e Redes Sociais:**
 O repositório aumentará o seu tamanho de acordo com as realizações dos cursos. E claro, aceito recomendações de cursos, livros ou vídeos! Qualquer duvida me chame no [LinkedIn](https://www.linkedin.com/in/gabriel-trentino-froes-415558144/).
