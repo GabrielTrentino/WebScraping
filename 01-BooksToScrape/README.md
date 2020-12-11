@@ -15,12 +15,12 @@ Situação Ficticia: Uma Startup de troca de livros possui um modelo de negócio
 *  O Web Scrapper foi realizado utilizando a linguagem Python;
     * Foram utilizados: `Selenium` e `BeautifulSoup`;
     * Modularização das Funções;
-* **(PRECISA SER FEITO)** Configurar o banco de dado Postgres;
-    * **(PRECISA SER FEITO)** Sincronizar os scripts de Python com o banco de dados Postgres;
-    * **(PRECISA SER FEITO)** Um Script so pode rodar quando outro terminar;
+* **(NÃO IMPLEMENTADO)** Configurar o banco de dado Postgres;
+    * **(NÃO IMPLEMENTADO)** Sincronizar os scripts de Python com o banco de dados Postgres;
+    * **(NÃO IMPLEMENTADO)** Um Script so pode rodar quando outro terminar;
 * Foi criado um arquivo [`.csv`](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/books_scrap.csv) com o Python;
 * Agendar o script para rodar em horários específicos;
-* **(PRECISA SER FEITO)** Garantir que o script saiba lidar com problemas (internet lenta, página não encontrada, objeto não carregado, etc);
+* **(NÃO IMPLEMENTADO)** Garantir que o script saiba lidar com problemas (internet lenta, página não encontrada, objeto não carregado, etc);
 * [Análise Exploratória](https://github.com/GabrielTrentino/WebScraping/blob/master/01-BooksToScrape/Books_To_Scrape.ipynb) dos Dados extraídos;
     * Recomendar os livros com maior avaliação entre os gêneros;
     
